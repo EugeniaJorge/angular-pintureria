@@ -1,0 +1,32 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Tipo</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img [src]="product.image" [alt]="product.type" class="img-thumbnail"></td>
+            <td>{{product.type}}</td>
+            <td>{{product.brand}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.stock}}</td>
+        </tr>
+        <tr>
+            <td>Esmalte</td>
+            <td>Brikol</td>
+            <td>500</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>Para piletas</td>
+            <td>Quimtex</td>
+            <td>900</td>
+            <td>8</td>
+        </tr>
+    </tbody>
+</table>
