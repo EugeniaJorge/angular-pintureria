@@ -1,32 +1,30 @@
-<table class="table table-striped">
-    <thead>
+<h2>Listado de productos</h2>
+<table class="table">
+    <thead class="thead-light">
         <tr>
             <th></th>
-            <th>Tipo</th>
-            <th>Marca</th>
-            <th>Precio</th>
-            <th>Stock</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Compra</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let product of products" [ngClass]="{'table-success': product.offer}">
             <td><img [src]="product.image" [alt]="product.type" class="img-thumbnail"></td>
             <td>{{product.type}}</td>
             <td>{{product.brand}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.stock}}</td>
-        </tr>
-        <tr>
-            <td>Esmalte</td>
-            <td>Brikol</td>
-            <td>500</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td>Para piletas</td>
-            <td>Quimtex</td>
-            <td>900</td>
-            <td>8</td>
+            <td>{{product.price | currency}} <span *ngIf="product.offer == true">OFERTA!</span> </td>
+            <td><span class="badge badge-warning" *ngIf="product.stock ==0">SIN STOCK</span>
+                <span *ngIf="product.stock !=0"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check"
+                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z" />
+                    </svg></span></td>
+            <td>
+                <app-input-number [product]="product" *ngIf="product.stock !=0"></app-input-number>
+            </td>
         </tr>
     </tbody>
 </table>

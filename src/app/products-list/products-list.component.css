@@ -1,4 +1,12 @@
 img{
-    width: 120px;
+    width: 140px;
     height: 135px;
+}
+table{
+    align-items: center;
+    text-align: center;
+    vertical-align:middle;
+}
+td{
+    vertical-align:middle;
 }
