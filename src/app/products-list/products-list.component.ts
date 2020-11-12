@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from './product';
+import { ProductCartService } from '../product-cart.service';
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
@@ -44,9 +45,20 @@ export class ProductsListComponent implements OnInit {
     quantity:0,
   },
   ]
-  constructor() { }
+
+  constructor(private cart: ProductCartService) { }
 
   ngOnInit(): void {
   }
-  
+
+  addToCart(product: Product): void {
+    
+    this.cart.addToCart(product);
+    product.stock -= product.quantity;
+    product.quantity = 0;
+  }
+   
+  maxProducts(m: string){
+    alert(m);
+  }
 }

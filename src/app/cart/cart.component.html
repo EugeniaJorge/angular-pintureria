@@ -1,1 +1,4 @@
-<h2>Carrito de compras</h2>
+<h2>Compras</h2>
+<ul class="list-group">
+    <li *ngFor="let product of (cartList$ |async)" class="list-group-item">{{product.type}}, {{product.brand}}: {{product.quantity}}</li>
+</ul>
